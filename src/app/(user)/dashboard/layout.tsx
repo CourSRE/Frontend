@@ -7,11 +7,11 @@ interface IProps {
 
 export default function DashboardUsersLayout({children, dashboard, leaderboard, settings} : IProps) {
   return (
-    <main>
+    <>
       {children}
       {dashboard}
       {leaderboard}
       {settings}
-    </main>
+    </>
   )
 }

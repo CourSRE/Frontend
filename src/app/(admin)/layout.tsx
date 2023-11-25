@@ -4,8 +4,8 @@ interface IProps {
 
 export default function AdminsLayout({children} : IProps) {
   return (
-    <main>
+    <>
       {children}
-    </main>
+    </>
   )
 }
