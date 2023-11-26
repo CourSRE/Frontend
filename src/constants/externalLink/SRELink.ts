@@ -1,0 +1,1 @@
+export const sreAboutPage = "https://www.sre.co.id/aboutus"

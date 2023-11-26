@@ -1,6 +1,6 @@
 export default function Dashboard() {
   return (
-    <main>
+    <main className="min-h-screen">
       Dashboard
     </main>
   )
