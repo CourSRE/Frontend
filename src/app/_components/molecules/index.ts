@@ -1,3 +1,1 @@
-const molecules = "Default"
-
-export default molecules
+export const molecules = () => 'Molecules'

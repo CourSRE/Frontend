@@ -1,29 +1,34 @@
-import { sreAboutPage } from "@/constants";
+"use client";
+
+import { headerNav, sreAboutPage } from "@/constants";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React from "react";
 
-type TProps = {};
+type TProps = {
+  
+};
 
 export const Header: React.FC<TProps> = () => {
+  const pathname = usePathname()
+
   return (
     <header className="flex flex-col top-0">
-      <nav className="flex bg-primary-base text-white px-8 text-sm font-medium">
-        <ul className="p-4 border-t-[1px] border-active-orange">
-          <Link href="/">Home</Link>
-        </ul>
-        <ul className="p-4">
-          <Link href="/courses">Courses</Link>
-        </ul>
-        <ul className="p-4">
-          <Link href={sreAboutPage} target="_blank">
-            About
-          </Link>
-        </ul>
-        <ul className="p-4">
-          <Link href={sreAboutPage} target="_blank">
-            Contact
-          </Link>
+      <nav>
+        <ul className="flex bg-primary-base text-white px-8 text-sm font-medium">
+          {headerNav?.map((item) => (
+            <li
+              key={item.name}
+              className={`p-4 border-t-[1px] ${
+                pathname === item.link
+                  ? "border-active-orange"
+                  : "border-primary-base"
+              }`}
+            >
+              <Link href={item.link}>{item.name}</Link>
+            </li>
+          ))}
         </ul>
       </nav>
       <section className="flex justify-between items-center bg-white text-gray-900 px-8 py-6 shadow-md shadow-gray-100">
@@ -69,13 +74,13 @@ export const Header: React.FC<TProps> = () => {
               <button className="flex items-center px-6 py-3 bg-primary-100 text-primary-base">Create Account</button>
               <button className="flex items-center px-6 py-3 bg-primary-base text-white">Sign In</button>
             </div> */}
-          <Link href='/dashboard'>
+          <Link href="/dashboard">
             <Image
               src="/images/default-avatar-image.jpg"
               alt=""
               width={48}
               height={48}
-              className="cursor-pointer rounded-full border-2 border-sky-500"
+              className={`cursor-pointer rounded-full border-2 ${ pathname == '/dashboard' && 'shadow-sm shadow-sky-500'}`}
             />
           </Link>
         </div>
