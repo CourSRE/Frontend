@@ -1,13 +1,17 @@
+import { Footer, Header } from "../_components/organisms";
+
 interface IProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
-function Dashboard({children}: IProps) {
+function Dashboard({ children }: IProps) {
   return (
     <>
-    {children}
+      <Header />
+      {children}
+      <Footer />
     </>
   );
-};
+}
 
 export default Dashboard;

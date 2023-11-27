@@ -1,0 +1,1 @@
+export const footerDescription = "Aliquam rhoncus ligula est, non pulvinar elit\nconvallis nec. Donec mattis odio at."
