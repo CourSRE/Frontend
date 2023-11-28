@@ -5,13 +5,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
+import { Button } from "../../atoms";
 
-type TProps = {
-  
-};
+type TProps = {};
 
 export const Header: React.FC<TProps> = () => {
-  const pathname = usePathname()
+  const pathname = usePathname();
 
   return (
     <header className="flex flex-col top-0">
@@ -63,6 +62,14 @@ export const Header: React.FC<TProps> = () => {
           </div>
         </div>
         <div className="flex gap-6 items-center">
+          {/* <div className="flex gap-4">
+            <Button variant="secondary">
+              Create Account
+            </Button>
+            <Button>
+              Sign In
+            </Button>
+          </div> */}
           <Image
             src="/icons/bell.svg"
             alt=""
@@ -70,17 +77,15 @@ export const Header: React.FC<TProps> = () => {
             height={24}
             className="cursor-pointer"
           />
-          {/* <div className="flex gap-4">
-              <button className="flex items-center px-6 py-3 bg-primary-100 text-primary-base">Create Account</button>
-              <button className="flex items-center px-6 py-3 bg-primary-base text-white">Sign In</button>
-            </div> */}
           <Link href="/dashboard">
             <Image
               src="/images/default-avatar-image.jpg"
               alt=""
               width={48}
               height={48}
-              className={`cursor-pointer rounded-full border-2 ${ pathname == '/dashboard' && 'shadow-sm shadow-sky-500'}`}
+              className={`cursor-pointer rounded-full border-2 ${
+                pathname == "/dashboard" && "shadow-sm shadow-sky-500"
+              }`}
             />
           </Link>
         </div>
