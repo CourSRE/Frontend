@@ -6,6 +6,7 @@ type TProps = {
   children: React.ReactNode;
   onClick?: MouseEventHandler<HTMLButtonElement>;
   fullWidth?: boolean;
+  icon?: React.ReactElement
   variant?: "primary" | "secondary";
 };
 
@@ -14,7 +15,7 @@ export const Button: React.FC<TProps> = ({
   type = "button",
   children,
   onClick,
-  fullWidth,
+  fullWidth, icon,
   variant = 'primary',
 }) => {
   return (
@@ -25,9 +26,10 @@ export const Button: React.FC<TProps> = ({
         variant === "primary"
           ? "bg-primary-base text-white"
           : "bg-primary-100 text-primary-base"
-      } ${fullWidth ? "w-full" : "w-fit"} ${className}`}
+      } ${fullWidth ? "w-full" : "w-fit"} ${icon && "pr-8"} ${className}`}
     >
-      {children}
+      {icon}
+      <span>{children}</span>
     </button>
   );
 };
