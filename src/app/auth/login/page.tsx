@@ -1,58 +1,59 @@
-"use client"
+// pages/Login.tsx
+import React from 'react';
 
-import React, { useState } from 'react';
-
-export default function Login() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleLogin = (e: any) => {
-    e.preventDefault();
-
-    // You can add your authentication logic here
-    
-    console.log('Username:', username);
-    console.log('Password:', password);
-
-    // You can redirect the user to another page after successful login
-    //  use -> history.push('/dashboard');
-  };
-
+const Login = () => {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h2 className="text-3xl font-bold mb-8">Login Page</h2>
-      <form onSubmit={handleLogin} className="flex flex-col items-center">
-        <label htmlFor="username" className="mb-2">
-          Username:
-        </label>
-        <input
-          type="text"
-          id="username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          className="border p-2 mb-4"
-          required
-        />
-
-        <label htmlFor="password" className="mb-2">
-          Password:
-        </label>
-        <input
-          type="password"
-          id="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="border p-2 mb-8"
-          required
-        />
-
-        <button
-          type="submit"
-          className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700"
-        >
-          Login
-        </button>
-      </form>
-    </main>
+    <div className="min-h-screen flex items-center justify-center">
+      <section className="w-1/2">
+        {/* Left section with cat images */}
+        {/* You can replace these images with actual cat images */}
+        <img src="https://placekitten.com/400/300" alt="Cat 1" className="w-full h-1/2 object-cover" />
+        <img src="https://placekitten.com/400/300" alt="Cat 2" className="w-full h-1/2 object-cover mt-2" />
+      </section>
+      <section className="w-1/2 p-8">
+        {/* Right section with login form */}
+        <h1 className="text-4xl font-bold mb-4">Sign in to your account</h1>
+        <h2 className="text-lg mb-6">
+          Don't have an account? <a href="#">Create an account</a>
+        </h2>
+        <form>
+          <div className="mb-4">
+            <label htmlFor="email" className="block text-sm font-medium text-gray-600">
+              Email
+            </label>
+            <input type="email" id="email" className="mt-1 p-2 border rounded w-full" />
+          </div>
+          <div className="mb-4 relative">
+            <label htmlFor="password" className="block text-sm font-medium text-gray-600">
+              Password
+            </label>
+            <input type="password" id="password" className="mt-1 p-2 border rounded w-full" />
+            <div className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-600">
+              <button
+                type="button"
+                className="focus:outline-none focus:ring focus:border-blue-300"
+              >
+                Show
+              </button>
+            </div>
+          </div>
+          <div className="mb-4">
+            <label className="flex items-center">
+              <input type="checkbox" className="form-checkbox" />
+              <span className="ml-2 text-sm">Remember me</span>
+            </label>
+          </div>
+          <button
+            type="submit"
+            className="bg-blue-500 text-white p-2 rounded hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
+          >
+            Sign in
+          </button>
+        </form>
+      </section>
+    </div>
   );
-}
+};
+
+export default Login;
+
