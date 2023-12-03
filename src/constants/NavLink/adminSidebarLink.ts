@@ -2,26 +2,26 @@ export const adminSidebarLink = [
   {
     icon: "/icons/ChartBar.svg",
     title: 'Dashboard',
-    link: "#"
+    link: "/admin/dashboard"
   },
   {
     icon: "/icons/User.svg",
     title: 'Users',
-    link: "#"
+    link: "/admin/users"
   },
   {
     icon: "/icons/PlusCircle.svg",
     title: 'Create New Course',
-    link: "#"
+    link: "/admin/create-course"
   },
   {
     icon: "/icons/Stack.svg",
     title: 'My Courses',
-    link: "#"
+    link: "/admin/courses"
   },
   {
     icon: "/icons/Gear.svg",
     title: 'Settings',
-    link: "#"
+    link: "/admin/settings"
   },
 ]
