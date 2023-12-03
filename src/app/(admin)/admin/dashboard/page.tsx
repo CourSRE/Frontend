@@ -1,6 +1,7 @@
 "use client";
-import { ProgressBar } from "@/app/_components/atoms";
-import { FunFactCards } from "@/app/_components/organisms";
+import { Heading, ProgressBar } from "@/app/_components/atoms";
+import { OverallChart } from "@/app/_components/molecules";
+import { DashboardLeaderboard, FunFactCards } from "@/app/_components/organisms";
 import ReactStars from "react-stars";
 
 const starCount = [5, 4, 3, 2, 1];
@@ -17,16 +18,30 @@ export default function AdminDashboard() {
               <option>This Week</option>
             </select>
           </header>
-          <div className="flex border-y-[1px] border-gray-200 py-[22px] px-5">
-            <section className="flex-1">Overall Rating</section>
-            <section className="flex-1">Graphic</section>
+          <div className="flex border-y-[1px] border-gray-200 py-[22px] px-5 gap-5">
+            <section className="flex-[2] bg-[#FFF2E5] flex flex-col justify-center items-center gap-4 py-[34px]">
+              <Heading title="4.6" level={3} className="text-4xl" />
+              <div className="flex flex-col items-center">
+                <ReactStars
+                  count={5}
+                  size={20}
+                  value={4.5}
+                  color2="#FD8E1F"
+                  className="flex-1"
+                />
+                <p className="text-sm font-medium">Overall Rating</p>
+              </div>
+            </section>
+            <section className="flex-[3] w-[50%] flex items-center justify-center">
+              <OverallChart />
+            </section>
           </div>
           <footer className="pt-[22px] pb-5 px-5">
             {starCount.map((star) => (
               <div key={star} className="flex items-center justify-between">
                 <ReactStars
                   count={5}
-                  size={24}
+                  size={20}
                   value={star}
                   color2="#FD8E1F"
                   className="flex-1"
@@ -48,9 +63,12 @@ export default function AdminDashboard() {
               <option>This Week</option>
             </select>
           </header>
-          <div>Add: React Vis</div>
+          <div className="px-6">
+            <OverallChart />
+          </div>{" "}
         </section>
       </div>
+      <DashboardLeaderboard className='bg-white px-4' isPanel={false}/>
     </main>
   );
 }
