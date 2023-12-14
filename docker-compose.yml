@@ -1,0 +1,14 @@
+version: '0.0.1'
+services:
+  app:
+    image: coursre-frontend
+    build:
+      context: ./
+      target: production
+      dockerfile: dockerfile
+    volumes:
+        - .:/app
+        - /app/node_modules
+        - /app/.next
+    ports:
+      - "3000:3000"
