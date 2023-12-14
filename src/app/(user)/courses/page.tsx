@@ -32,13 +32,13 @@ const Courses: React.FC = () => {
         <section
           key={course.id}
           className={`flex p-4 mb-10 ${
-            course.availability ? 'bg-green-400' : 'bg-red-400'
+            course.availability ? 'bg-green-300' : 'bg-gray-400'
           } text-black`}
         >
           <img
-            src={`https://placekitten.com/200/300?image=${course.id}`}
+            src={`https://placekitten.com/500/500?gravity=center&image=${course.id}`}
             alt={course.name}
-            className="mr-4"
+            className="mr-4 border-2 border-black" // Added border styling
           />
           <div>
             <h2>{course.name}</h2>
