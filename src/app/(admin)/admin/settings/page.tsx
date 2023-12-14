@@ -1,7 +1,9 @@
-export default function Home() {
+import React from 'react'
+
+type Props = {}
+
+export default function SettingsAdmin({}: Props) {
   return (
-    <main>
-      Admin Setting
-    </main>
+    <div>SettingsAdmin</div>
   )
 }

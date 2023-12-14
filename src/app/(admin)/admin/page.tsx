@@ -1,7 +1,8 @@
-export default function Home() {
-  return (
-    <main>
-      Just Redirect (Not to use)
-    </main>
-  )
+import { redirect } from 'next/navigation'
+
+type Props = {}
+
+export default function AdminPage({}: Props) {
+  return redirect('/')
+  
 }

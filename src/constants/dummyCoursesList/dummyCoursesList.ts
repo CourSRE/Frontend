@@ -5,7 +5,7 @@ export const dummyCoursesList = [
     title: 'Bioenergi 101',
     creator: 'SRE Indonesia',
     imageSrc: '/images/default-courses-image.jpg',
-    percentage: '10%'
+    percentage: 10
   },
   {
     id: 2,
@@ -13,7 +13,7 @@ export const dummyCoursesList = [
     title: 'Bioenergi 101',
     creator: 'SRE Indonesia',
     imageSrc: '/images/default-courses-image.jpg',
-    percentage: '10%'
+    percentage: 10
   },
   {
     id: 3,
@@ -21,6 +21,6 @@ export const dummyCoursesList = [
     title: 'Bioenergi 101',
     creator: 'SRE Indonesia',
     imageSrc: '/images/default-courses-image.jpg',
-    percentage: '10%'
+    percentage: 10
   },
 ]

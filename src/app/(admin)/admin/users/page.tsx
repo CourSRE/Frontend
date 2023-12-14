@@ -1,7 +1,12 @@
-export default function AdminUserManagement() {
+import { UsersTable } from '@/app/_componentsAdmin/organisms'
+import React from 'react'
+
+type Props = {}
+
+export default function AdminUsersPage({}: Props) {
   return (
     <main>
-      Admin User Management
+      <UsersTable />
     </main>
   )
 }

@@ -36,9 +36,12 @@ const columns = [
   }),
 ];
 
-type TProps = {};
+type TProps = {
+  isPanel?: boolean;
+  className?: string
+};
 
-export const DashboardLeaderboard: React.FC<TProps> = () => {
+export const DashboardLeaderboard: React.FC<TProps> = ({ isPanel = true, className }) => {
   const [data, setData] = React.useState(() => [...dummyLeaderboardData]);
 
   const table = useReactTable({
@@ -46,6 +49,68 @@ export const DashboardLeaderboard: React.FC<TProps> = () => {
     columns,
     getCoreRowModel: getCoreRowModel(),
   });
+
+  if (!isPanel) {
+    return (
+      <section className={`w-full flex flex-col text-base ${className}`}>
+        <section className="flex gap-6 justify-between pt-4 pb-[43px]">
+          <TextInput
+            className="w-[30%]"
+            placeholder="Search by name"
+            searchIcon
+            fullWidth
+            label="Search:"
+          />
+          <OptionInput fullWidth label="Sort By:">
+            <option>Latest</option>
+            <option>Highest</option>
+            <option>Lowest</option>
+          </OptionInput>
+          <OptionInput fullWidth label="Courses: ">
+            <option>Courses Name</option>
+            <option>Biologi 101</option>
+            <option>Renewable Energy</option>
+            <option>Aby COurse</option>
+          </OptionInput>
+          <OptionInput fullWidth label="Student Chapter:">
+            <option>Student Chapter Name</option>
+            <option>SRE Unair</option>
+            <option>SRE UGM</option>
+            <option>Aby BSI</option>
+          </OptionInput>
+        </section>
+        <table className="flex-1">
+          <thead>
+            {table.getHeaderGroups().map((headerGroup) => (
+              <tr key={headerGroup.id}>
+                {headerGroup.headers.map((header) => (
+                  <th key={header.id} className="font-normal pb-7 text-left">
+                    {header.isPlaceholder
+                      ? null
+                      : flexRender(
+                          header.column.columnDef.header,
+                          header.getContext()
+                        )}
+                  </th>
+                ))}
+              </tr>
+            ))}
+          </thead>
+          <tbody>
+            {table.getRowModel().rows.map((row) => (
+              <tr key={row.id}>
+                {row.getVisibleCells().map((cell) => (
+                  <td key={cell.id} className="py-3">
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </section>
+    );
+  }
   return (
     <Tab.Panel as="section" className="w-full flex flex-col text-base">
       <section className="flex gap-6 justify-between pt-4 pb-[43px]">
